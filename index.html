@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>반튼 술탄국 버추얼 박물관 | Museum Virtual Kesultanan Banten (시안)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+:root{--night:#0B111C;--navy:#13233F;--brick:#8A3B24;--laterite:#B4563A;--gold:#C9A45C;--gold2:#E6C98A;--ivory:#F4EEE2;--teal:#2E6E6A;--ink:#1B2230;--mute:#9AA3B2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Pretendard,'Noto Sans KR','Malgun Gothic',sans-serif;background:var(--night);color:var(--ivory);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.serif{font-family:'Noto Serif KR',serif}
+.cinzel{font-family:Cinzel,serif;letter-spacing:.18em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 36px;transition:background .4s}
+header.solid{background:rgba(11,17,28,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,164,92,.2)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{width:38px;height:38px;border:1.5px solid var(--gold);transform:rotate(45deg);display:grid;place-items:center}
+.brand .mark i{width:14px;height:14px;background:var(--gold);display:block}
+.brand b{display:block;font-family:Cinzel,serif;font-size:13px;letter-spacing:.22em;color:var(--gold2)}
+.brand span{display:block;font-size:12px;color:#cfd5df}
+nav ul{display:flex;gap:28px;list-style:none;font-size:14px}
+nav a{opacity:.85}nav a:hover{opacity:1;color:var(--gold2)}
+.lang{display:flex;gap:4px;border:1px solid rgba(201,164,92,.45);border-radius:999px;padding:3px}
+.lang button{background:none;border:0;color:#cfd5df;font:600 12px Pretendard,sans-serif;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--gold);color:var(--night)}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.8s ease, transform 12s linear}
+.slide.on{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,28,.55) 0%,rgba(11,17,28,.05) 30%,rgba(11,17,28,.25) 55%,rgba(11,17,28,.96) 100%),radial-gradient(ellipse at 20% 60%,rgba(11,17,28,.55),transparent 60%)}
+.hero-in{position:relative;z-index:2;width:100%;padding:0 6vw 11vh}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:Cinzel,serif;font-size:13px;letter-spacing:.32em;color:var(--gold2)}
+.eyebrow::before{content:"";width:48px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(40px,6.4vw,92px);line-height:1.08;margin:18px 0 10px;text-shadow:0 4px 40px rgba(0,0,0,.5)}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero .latin{font-family:Cinzel,serif;font-size:clamp(14px,1.5vw,20px);letter-spacing:.42em;color:#e9dfcb}
+.hero p.lead{max-width:620px;margin-top:22px;font-size:17px;color:#dfe3ea}
+.cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;font-weight:700;font-size:15px;border:1px solid var(--gold);transition:.25s}
+.btn.pri{background:linear-gradient(135deg,#d8b56c,#a9813c);color:#11161f;border:0}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,164,92,.25)}
+.era{position:absolute;right:5vw;bottom:11vh;z-index:3;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.era button{background:rgba(11,17,28,.55);border:1px solid rgba(230,201,138,.4);color:#e9dfcb;padding:9px 16px;font:600 13px Pretendard,sans-serif;cursor:pointer;min-width:220px;text-align:left;backdrop-filter:blur(4px)}
+.era button.on{border-color:var(--gold2);color:#fff;background:rgba(138,59,36,.55)}
+.era button small{display:block;font-weight:400;opacity:.75;font-size:11px}
+.tag-ai{position:absolute;left:6vw;bottom:3.4vh;z-index:3;font-size:12px;color:#c9cfd9;display:flex;gap:8px;align-items:center}
+.tag-ai b{background:var(--laterite);color:#fff;padding:2px 8px;font-size:11px;letter-spacing:.06em}
+.scroll{position:absolute;left:50%;bottom:3vh;z-index:3;transform:translateX(-50%);font-family:Cinzel,serif;font-size:11px;letter-spacing:.3em;color:var(--gold2);text-align:center}
+.scroll::after{content:"";display:block;width:1px;height:38px;margin:8px auto 0;background:linear-gradient(var(--gold),transparent);animation:drop 2s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* stats */
+.stats{border-top:1px solid rgba(201,164,92,.25);border-bottom:1px solid rgba(201,164,92,.25);background:#0E1624}
+.stats .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.stat{padding:30px 10px;text-align:center;border-right:1px solid rgba(201,164,92,.15)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:Cinzel,serif;font-size:34px;color:var(--gold2)}
+.stat span{font-size:13px;color:var(--mute)}
+
+section{padding:110px 0}
+.sec-h{margin-bottom:46px}
+.sec-h .eyebrow{font-size:12px}
+.sec-h h2{font-family:'Noto Serif KR',serif;font-size:clamp(28px,3.4vw,46px);font-weight:900;margin-top:12px;line-height:1.25}
+.sec-h p{color:#b9c0cc;max-width:680px;margin-top:12px}
+
+/* entrance hall */
+.hall{position:relative;background:url(assets/ai/entrance_hall_ai.jpg) center/cover fixed}
+.hall::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,28,.96),rgba(11,17,28,.78) 40%,rgba(11,17,28,.96))}
+.hall .wrap{position:relative}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;min-height:440px;overflow:hidden;border:1px solid rgba(201,164,92,.35);display:flex;align-items:flex-end;transition:.4s}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(11,17,28,.95))}
+.card:hover img{transform:scale(1.06)}
+.card:hover{border-color:var(--gold2)}
+.card .c-in{position:relative;z-index:2;padding:28px}
+.card .num{font-family:Cinzel,serif;color:var(--gold2);font-size:13px;letter-spacing:.3em}
+.card h3{font-family:'Noto Serif KR',serif;font-size:26px;margin:8px 0}
+.card p{font-size:14px;color:#cdd3dc}
+.card .go{margin-top:16px;font-size:13px;color:var(--gold2);font-weight:700}
+.badge{position:absolute;top:14px;right:14px;z-index:3;font-size:11px;padding:3px 8px;background:rgba(11,17,28,.7);border:1px solid rgba(255,255,255,.25)}
+.badge.ai{border-color:var(--laterite);color:#ffd7c9}
+
+/* timeline */
+.timeline{background:var(--ivory);color:var(--ink)}
+.timeline .sec-h p{color:#5b6170}
+.tl{display:flex;gap:0;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory}
+.tl-item{flex:0 0 250px;scroll-snap-align:start;border-top:3px solid var(--brick);padding:22px 22px 0 0;position:relative}
+.tl-item::before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;background:var(--ivory);border:3px solid var(--brick);transform:rotate(45deg)}
+.tl-item .y{font-family:Cinzel,serif;font-weight:700;font-size:24px;color:var(--brick)}
+.tl-item h4{font-size:16px;margin:6px 0 4px}
+.tl-item p{font-size:13px;color:#5b6170}
+.tl-item.gold{border-top-color:var(--gold)}
+.tl-item.gold::before{border-color:var(--gold)}
+.tl-item.gold .y{color:#9c7428}
+
+/* artifacts */
+.arti{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.arti .feature{position:relative;border:1px solid rgba(201,164,92,.35)}
+.arti .feature img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.alist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ai-card{border:1px solid rgba(201,164,92,.25);padding:18px;background:rgba(255,255,255,.02)}
+.ai-card b{font-family:Cinzel,serif;color:var(--gold2);font-size:12px;letter-spacing:.2em}
+.ai-card h4{font-size:16px;margin:4px 0}
+.ai-card p{font-size:12.5px;color:#aab2bf}
+.ai-card .m{display:inline-block;margin-top:8px;font-size:11px;color:var(--gold2);border:1px solid rgba(201,164,92,.4);padding:1px 7px}
+
+/* sites */
+.sites{background:#0E1624}
+.compare{position:relative;aspect-ratio:16/8;overflow:hidden;border:1px solid rgba(201,164,92,.35);user-select:none}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare .top{clip-path:inset(0 50% 0 0)}
+.compare .bar{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold2);cursor:ew-resize}
+.compare .bar::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--gold);color:#111;display:grid;place-items:center;font-weight:900}
+.compare .l,.compare .r{position:absolute;top:16px;font-size:12px;padding:4px 10px;background:rgba(11,17,28,.75)}
+.compare .l{left:16px;border:1px solid var(--laterite)}.compare .r{right:16px;border:1px solid rgba(255,255,255,.3)}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.sg{position:relative;aspect-ratio:4/3;overflow:hidden}
+.sg img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:.6s}
+.sg:hover img{transform:scale(1.07);filter:saturate(1.1)}
+.sg span{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;font-size:13px;font-weight:700;background:linear-gradient(transparent,rgba(11,17,28,.9))}
+.sg span i{font-style:normal;color:var(--gold2);font-family:Cinzel,serif;margin-right:6px}
+
+/* plans */
+.plans{background:var(--ivory);color:var(--ink)}
+.plans .sec-h p{color:#5b6170}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pgrid figure{background:#fff;border:1px solid #e0d6c2}
+.pgrid figcaption{padding:14px 18px;font-size:13px;color:#5b6170;border-top:1px solid #eee}
+.pgrid figcaption b{color:var(--ink)}
+.aerial{position:relative;height:88vh;min-height:560px;background:url(assets/ai/aerial_ai.jpg) center/cover;display:flex;align-items:flex-end}
+.aerial::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,17,28,.15),rgba(11,17,28,.92))}
+.aerial .wrap{position:relative;padding-bottom:70px;width:100%}
+
+footer{padding:70px 0 40px;background:#080C14;font-size:13px;color:#8e97a6}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+footer h5{color:var(--gold2);font-size:13px;margin-bottom:10px;letter-spacing:.1em}
+footer li{list-style:none;margin:4px 0}
+.credits{margin-top:40px;padding-top:20px;border-top:1px solid #1d2635;font-size:11.5px;line-height:1.7}
+
+@media (max-width:900px){
+ nav ul{display:none}
+ header{padding:14px 18px}
+ .stats .wrap{grid-template-columns:repeat(3,1fr)}
+ .cards,.arti,.pgrid,.fgrid{grid-template-columns:1fr}
+ .sgrid{grid-template-columns:1fr 1fr}
+ .era{left:6vw;right:auto;bottom:auto;top:96px;flex-direction:row;flex-wrap:wrap;align-items:flex-start}
+ .era button{min-width:0}
+ .era button small{display:none}
+ .hall{background-attachment:scroll}
+ .slide{background-position:68% center}
+ .scroll{display:none}
+ .eyebrow{font-size:11px;letter-spacing:.22em}
+ section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <a class="brand" href="#top"><div class="mark"><i></i></div><div><b>KESULTANAN BANTEN</b><span data-i="brandSub">반튼 술탄국 버추얼 박물관</span></div></a>
+  <nav><ul>
+    <li><a href="#hall" data-i="nHall">입구 홀</a></li>
+    <li><a href="#history" data-i="nHist">역사 전시관</a></li>
+    <li><a href="#artifacts" data-i="nArt">유물 전시관</a></li>
+    <li><a href="#sites" data-i="nSite">유적지 360°</a></li>
+    <li><a href="#plans" data-i="nPlan">박물관 안내도</a></li>
+  </ul></nav>
+  <div class="lang" id="lang">
+    <button data-l="id">ID</button><button data-l="su">SU</button><button data-l="en">EN</button><button data-l="ko" class="on">KO</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0">
+  <div class="slide on" style="background-image:url(assets/ai/hero_ai.jpg)"></div>
+  <div class="slide" style="background-image:url(assets/ai/aerial_ai.jpg)"></div>
+  <div class="slide" style="background-image:url(assets/photos/surosowan2.jpg)"></div>
+  <div class="hero-in">
+    <div class="eyebrow">MUSEUM VIRTUAL · 1552 – 1813</div>
+    <h1 data-i="h1">순다 해협의 왕국,<br><em>반튼</em>이 다시 열립니다</h1>
+    <div class="latin">KESULTANAN BANTEN</div>
+    <p class="lead" data-i="lead">무너진 스로소완 궁과 카이본 궁, 국제 무역항의 유물과 역사를 한 곳에서. 설치 없이 브라우저에서 바로 들어가는 웹 박물관입니다.</p>
+    <div class="cta">
+      <a class="btn pri" href="#hall" data-i="cta1">박물관 입장하기 →</a>
+      <a class="btn" href="#sites" data-i="cta2">유적지 360° 바로가기</a>
+    </div>
+  </div>
+  <div class="era" id="era">
+    <button class="on" data-s="0"><span data-i="e0">전성기 추정 복원</span><small>17세기 반튼 라마 · AI 시안</small></button>
+    <button data-s="1"><span data-i="e1">왕도 조감도</span><small>17세기 말 추정 · AI 시안</small></button>
+    <button data-s="2"><span data-i="e2">오늘의 스로소완 궁 터</span><small>실사 · Wikimedia Commons</small></button>
+  </div>
+  <div class="tag-ai" id="tagai"><b>AI 생성</b><span>사료 고증 전 추정 이미지. 실제 오픈 시 고증 CG로 교체</span></div>
+  <div class="scroll">SCROLL</div>
+</section>
+
+<div class="stats"><div class="wrap">
+  <div class="stat"><b>261</b><span data-i="s1">년의 왕국 (1552–1813)</span></div>
+  <div class="stat"><b>11</b><span data-i="s2">개 역사 장면</span></div>
+  <div class="stat"><b>1,000+</b><span data-i="s3">현지 박물관 소장품</span></div>
+  <div class="stat"><b>8</b><span data-i="s4">곳 유적 360°</span></div>
+  <div class="stat"><b>4</b><span data-i="s5">개 언어 해설</span></div>
+</div></div>
+
+<!-- ENTRANCE HALL -->
+<section class="hall" id="hall"><div class="wrap">
+  <div class="sec-h"><div class="eyebrow">ENTRANCE HALL</div><h2 class="serif" data-i="hallH">세 개의 문, 하나의 왕국</h2><p data-i="hallP">관심에 따라 세 전시관을 고르세요. 유물 카드에서 해당 시대로, 유적 영상에서 관련 유물로 언제든 넘어갈 수 있습니다.</p></div>
+  <div class="cards">
+    <a class="card" href="#history"><img src="assets/ai/aerial_ai.jpg" alt=""><span class="badge ai">AI 시안</span><div class="c-in"><div class="num">HALL I</div><h3 data-i="c1h">역사 전시관</h3><p data-i="c1p">건국부터 1813년까지 11개 장면. 지도·인물 카드·짧은 해설로 왜 번영했고 왜 무너졌는지.</p><div class="go">ENTER →</div></div></a>
+    <a class="card" href="#artifacts"><img src="assets/ai/artifact_hall_ai.jpg" alt=""><span class="badge ai">AI 시안</span><div class="c-in"><div class="num">HALL II</div><h3 data-i="c2h">유물 전시관</h3><p data-i="c2p">대포, 도자기, 화폐, 건축 부재. 3D로 돌려 보는 무역·종교·권력의 증거.</p><div class="go">ENTER →</div></div></a>
+    <a class="card" href="#sites"><img src="assets/photos/kaibon1.jpg" alt=""><span class="badge">실사</span><div class="c-in"><div class="num">HALL III</div><h3 data-i="c3h">유적지 360° 영상관</h3><p data-i="c3p">반튼 라마 8곳을 현장에 선 듯. 폐허 위에 전성기 복원 모습을 겹쳐 봅니다.</p><div class="go">ENTER →</div></div></a>
+  </div>
+</div></section>
+
+<!-- HISTORY -->
+<section class="timeline" id="history"><div class="wrap">
+  <div class="sec-h"><div class="eyebrow" style="color:var(--brick)">HALL I · HISTORY</div><h2 class="serif" data-i="histH">항구도시의 탄생에서 마지막 술탄까지</h2><p>연표는 기획서(Wikipedia: Banten Sultanate 기준) 그대로. 자료마다 연도가 다른 항목은 감수 후 확정합니다.</p></div>
+  <div class="tl">
+    <div class="tl-item"><div class="y">1526</div><h4>항구도시의 탄생</h4><p>수난 구눙 자티가 반튼을 정복, 반튼 라마가 새 수도로</p></div>
+    <div class="tl-item"><div class="y">1552</div><h4>하산우딘 즉위</h4><p>치르본에서 독립, 스로소완 궁 건립</p></div>
+    <div class="tl-item"><div class="y">1570</div><h4>해협 양안 장악</h4><p>자바 서부와 수마트라 남부</p></div>
+    <div class="tl-item"><div class="y">1596</div><h4>유럽과의 첫 만남</h4><p>더 하우트만의 네덜란드 함대 도착</p></div>
+    <div class="tl-item"><div class="y">1619</div><h4>경쟁 항구의 등장</h4><p>쿤이 바타비아를 세움</p></div>
+    <div class="tl-item gold"><div class="y">1651</div><h4>황금기</h4><p>아겡 티르타야사 시대, 후추·설탕 자유무역</p></div>
+    <div class="tl-item"><div class="y">1682</div><h4>전환점</h4><p>부자 갈등과 VOC 개입, 스페일베이크 요새</p></div>
+    <div class="tl-item"><div class="y">1692</div><h4>아겡 티르타야사</h4><p>바타비아에서 포로로 사망</p></div>
+    <div class="tl-item"><div class="y">1808</div><h4>궁궐 파괴</h4><p>다엔델스, 스로소완 궁 파괴 명령</p></div>
+    <div class="tl-item"><div class="y">1813</div><h4>마지막 술탄</h4><p>래플스가 술탄 샤피우딘 퇴위</p></div>
+    <div class="tl-item gold"><div class="y">2016~</div><h4>이어지는 이야기</h4><p>현 술탄 즉위, 칭호 계승</p></div>
+  </div>
+</div></section>
+
+<!-- ARTIFACTS -->
+<section id="artifacts"><div class="wrap">
+  <div class="sec-h"><div class="eyebrow">HALL II · ARTIFACTS</div><h2 class="serif" data-i="artH">유물이 말하는 무역·종교·권력</h2><p>1985년 개관, 1,000점 이상을 가진 반튼 라마 유적 박물관 소장품에서 1차 후보 6점. 최종 선정은 소장처와 협의.</p></div>
+  <div class="arti">
+    <div class="feature"><img src="assets/ai/artifact_hall_ai.jpg" alt="유물관 컨셉"><span class="badge ai">AI 컨셉 · 실제 유물 아님</span></div>
+    <div class="alist">
+      <div class="ai-card"><b>A</b><h4>메리암 키 아묵 대포</h4><p>약 2.5m 오스만 양식 대포</p><span class="m">3D 스캔</span></div>
+      <div class="ai-card"><b>B</b><h4>외국산 도자기</h4><p>중국·일본·베트남·중동·유럽산</p><span class="m">3D + 무역로 지도</span></div>
+      <div class="ai-card"><b>C</b><h4>화폐</h4><p>현지·외국 교역 통화</p><span class="m">고해상 확대 뷰어</span></div>
+      <div class="ai-card"><b>D</b><h4>석제 분쇄·압착 도구</h4><p>후추·설탕 산업의 흔적</p><span class="m">3D 스캔</span></div>
+      <div class="ai-card"><b>E</b><h4>와투 길랑</h4><p>궁정 석조물 · 용도 감수 필요</p><span class="m">3D + 현장 360°</span></div>
+      <div class="ai-card"><b>F</b><h4>건축 부재</h4><p>지붕 장식, 벽돌, 조각상</p><span class="m">3D + 복원 CG</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- SITES -->
+<section class="sites" id="sites"><div class="wrap">
+  <div class="sec-h"><div class="eyebrow">HALL III · 360° SITES</div><h2 class="serif" data-i="siteH">폐허 위에 겹쳐 보는 전성기</h2><p>막대를 좌우로 끌어 추정 복원과 오늘의 모습을 비교합니다(데모: 실제 서비스는 같은 시점의 360° 촬영본과 고증 CG를 겹칩니다).</p></div>
+  <div class="compare" id="cmp">
+    <img src="assets/photos/surosowan2.jpg" alt="현재">
+    <img class="top" src="assets/ai/aerial_ai.jpg" alt="복원">
+    <div class="bar"></div><span class="l">추정 복원 · AI</span><span class="r">현재 · 스로소완 궁 터</span>
+  </div>
+  <div class="sgrid">
+    <div class="sg"><img src="assets/photos/minaret1.jpg" alt=""><span><i>01</i>반튼 대사원</span></div>
+    <div class="sg"><img src="assets/photos/surosowan1.jpg" alt=""><span><i>02</i>스로소완 궁 터</span></div>
+    <div class="sg"><img src="assets/photos/kaibon1.jpg" alt=""><span><i>03</i>카이본 궁 터</span></div>
+    <div class="sg"><img src="assets/photos/speelwijk1.jpg" alt=""><span><i>04</i>스페일베이크 요새</span></div>
+    <div class="sg"><img src="assets/photos/tasikardi1.jpg" alt=""><span><i>05</i>타시카르디 호수</span></div>
+    <div class="sg"><img src="assets/photos/masjid3.jpg" alt=""><span><i>—</i>대사원 정문 (석양)</span></div>
+    <div class="sg"><img src="assets/photos/kiamuk1.jpg" alt=""><span><i>—</i>키 아묵 대포 (19세기 말 사진)</span></div>
+    <div class="sg"><img src="assets/photos/masjid2.jpg" alt=""><span><i>—</i>대사원 정면</span></div>
+  </div>
+</div></section>
+
+<!-- PLANS -->
+<section class="plans" id="plans"><div class="wrap">
+  <div class="sec-h"><div class="eyebrow" style="color:var(--brick)">MUSEUM GUIDE</div><h2 class="serif" data-i="planH">박물관 안내도와 유적 배치도</h2><p>왼쪽은 웹 박물관의 가상 공간 구성(입구 홀 + 3관), 오른쪽은 실제 반튼 라마 8개 유적의 위치입니다.</p></div>
+  <div class="pgrid">
+    <figure><img src="assets/drawings/01_virtual_museum_floorplan.png" alt="공간 평면도"><figcaption><b>버추얼 박물관 공간 평면도(개념안)</b> · 코드 작성, 실제 건축 도면 아님</figcaption></figure>
+    <figure><img src="assets/drawings/02_banten_lama_siteplan.png" alt="유적 배치도"><figcaption><b>반튼 라마 유적 배치도</b> · OpenStreetMap 좌표 기준 축척 위치도</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="aerial" style="padding:0"><div class="wrap">
+  <div class="eyebrow">BIRD'S-EYE VIEW · c.1680s</div>
+  <h2 class="serif" style="font-size:clamp(28px,3.6vw,50px);font-weight:900;margin:12px 0 8px" data-i="aerH">하늘에서 본 반튼 왕도</h2>
+  <p style="max-width:640px;color:#dfe3ea">스로소완 궁, 대사원과 광장, 항구와 요새가 한눈에. <b style="color:#ffd7c9">AI 생성 추정 조감도</b>로, 실제 배치·규모는 고증 CG에서 확정합니다.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="brand" style="margin-bottom:14px"><div class="mark"><i></i></div><div><b>KESULTANAN BANTEN</b><span>Museum Virtual · 시안 v0.1</span></div></div><p>반튼 술탄국(1552–1813)의 역사·유물·유적을 한 곳에서 보는 웹 기반 버추얼 박물관.</p></div>
+    <div><h5>협력 (기획서 기준)</h5><ul><li>Yayasan Sabumi Nusantara Jaya Indonesia</li><li>온나무 · KIIP · 브라이튼</li><li>두드림인재개발원 · K헤리티지포럼</li></ul></div>
+    <div><h5>바로가기</h5><ul><li><a href="#history">역사 전시관</a></li><li><a href="#artifacts">유물 전시관</a></li><li><a href="#sites">유적지 360°</a></li><li><a href="https://www.metadwipa.id" target="_blank">MetaDwipa 연계 (검토)</a></li></ul>
+      <h5 style="margin-top:18px">자료실</h5><ul><li><a href="docs/banten-virtual-museum-build-plan-v0.1.docx">홈페이지 구축계획서 (DOCX)</a></li><li><a href="assets/drawings/01_virtual_museum_floorplan.png" target="_blank">공간 평면도</a> · <a href="assets/drawings/02_banten_lama_siteplan.png" target="_blank">유적 배치도</a></li><li><a href="https://github.com/groot512/banten-virtual-museum" target="_blank">GitHub 저장소 (에셋 전체)</a></li></ul></div>
+  </div>
+  <div class="credits">
+    <b style="color:#c9cfd9">이미지 출처</b> · AI 생성(OpenAI 이미지 모델, Aside 경유): 메인 히어로, 조감도, 입구 홀·유물관 컨셉 — 모두 사료 고증 전 추정 시안.<br>
+    실사(Wikimedia Commons): 대사원 첨탑 © Tito Tri Kadafi (CC BY 4.0) · 대사원 정면·정문, 스로소완 궁 터, 카이본 궁 터, 스페일베이크 요새, 타시카르디 호수 © Arif Permana Putra (CC BY-SA 4.0) · 키 아묵 대포 G.F.J. Bley, KITLV (CC BY 4.0).<br>
+    도면: 공간 평면도·유적 배치도는 코드로 직접 작성. 좌표 © OpenStreetMap contributors.
+  </div>
+</div></footer>
+
+<script>
+// header
+const hd=document.getElementById('hd');addEventListener('scroll',()=>hd.classList.toggle('solid',scrollY>60));
+// hero slides
+const slides=[...document.querySelectorAll('.slide')],eb=[...document.querySelectorAll('#era button')],tag=document.getElementById('tagai');
+let cur=0,timer;
+function show(i){slides.forEach((s,k)=>s.classList.toggle('on',k===i));eb.forEach((b,k)=>b.classList.toggle('on',k===i));tag.style.opacity=i===2?0:1;cur=i}
+eb.forEach((b,i)=>b.onclick=()=>{show(i);clearInterval(timer);timer=setInterval(()=>show((cur+1)%3),7000)});
+timer=setInterval(()=>show((cur+1)%3),7000);
+// compare slider
+const cmp=document.getElementById('cmp'),top_=cmp.querySelector('.top'),bar=cmp.querySelector('.bar');
+function setX(x){const r=cmp.getBoundingClientRect();let p=Math.min(1,Math.max(0,(x-r.left)/r.width));top_.style.clipPath=`inset(0 ${100-p*100}% 0 0)`;bar.style.left=p*100+'%'}
+let drag=false;cmp.addEventListener('pointerdown',e=>{drag=true;setX(e.clientX)});addEventListener('pointerup',()=>drag=false);addEventListener('pointermove',e=>drag&&setX(e.clientX));
+// i18n (핵심 문구만 시안 번역, 현지 감수 필요 / 순다어는 감수 전까지 인니어로 대체)
+const T={
+ en:{brandSub:'Banten Sultanate Virtual Museum',nHall:'Entrance Hall',nHist:'History',nArt:'Artifacts',nSite:'360° Sites',nPlan:'Museum Map',h1:'The Kingdom of the Sunda Strait,<br><em>Banten</em> Reopens',lead:'The ruined palaces of Surosowan and Kaibon, the treasures and history of a global trading port, all in one place. A web museum that opens right in your browser.',cta1:'Enter the Museum →',cta2:'Go to 360° Sites',e0:'Golden Age (reconstruction)',e1:'Royal City from Above',e2:'Surosowan Today',s1:'years of kingdom',s2:'history scenes',s3:'objects in local museum',s4:'sites in 360°',s5:'languages',hallH:'Three Gates, One Kingdom',hallP:'Choose a hall. Jump from an artifact to its era, or from a site video to related objects, at any time.',c1h:'History Hall',c1p:'Eleven scenes from foundation to 1813.',c2h:'Artifact Hall',c2p:'Cannon, ceramics, coins and architecture in 3D.',c3h:'360° Site Theater',c3p:'Eight sites of Banten Lama with reconstruction overlays.',histH:'From Port City to the Last Sultan',artH:'Trade, Faith and Power in Objects',siteH:'See the Golden Age over the Ruins',planH:'Museum Map & Site Plan',aerH:'The Royal City from Above'},
+ id:{brandSub:'Museum Virtual Kesultanan Banten',nHall:'Aula Utama',nHist:'Galeri Sejarah',nArt:'Galeri Artefak',nSite:'Situs 360°',nPlan:'Denah Museum',h1:'Kerajaan Selat Sunda,<br><em>Banten</em> Kembali Terbuka',lead:'Keraton Surosowan dan Kaibon yang runtuh, artefak dan sejarah bandar dagang internasional, dalam satu tempat. Museum web yang langsung terbuka di peramban.',cta1:'Masuk Museum →',cta2:'Lihat Situs 360°',e0:'Rekonstruksi Masa Kejayaan',e1:'Kota Kerajaan dari Udara',e2:'Surosowan Hari Ini',s1:'tahun kesultanan',s2:'adegan sejarah',s3:'koleksi museum situs',s4:'situs 360°',s5:'bahasa',hallH:'Tiga Gerbang, Satu Kerajaan',hallP:'Pilih galeri sesuai minat Anda. Berpindah dari artefak ke zamannya, atau dari video situs ke artefak terkait.',c1h:'Galeri Sejarah',c1p:'Sebelas adegan dari berdirinya hingga 1813.',c2h:'Galeri Artefak',c2p:'Meriam, keramik, mata uang, dan unsur bangunan dalam 3D.',c3h:'Teater Situs 360°',c3p:'Delapan situs Banten Lama dengan lapisan rekonstruksi.',histH:'Dari Kota Pelabuhan hingga Sultan Terakhir',artH:'Perdagangan, Iman, dan Kekuasaan',siteH:'Masa Kejayaan di Atas Reruntuhan',planH:'Denah Museum & Situs',aerH:'Kota Kerajaan dari Udara'}
+};
+T.su=T.id;
+const KO={};document.querySelectorAll('[data-i]').forEach(el=>KO[el.dataset.i]=el.innerHTML);T.ko=KO;
+document.querySelectorAll('#lang button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#lang button').forEach(x=>x.classList.toggle('on',x===b));const t=T[b.dataset.l];document.querySelectorAll('[data-i]').forEach(el=>{if(t[el.dataset.i])el.innerHTML=t[el.dataset.i]});document.documentElement.lang=b.dataset.l});
+</script>
+</body>
+</html>
